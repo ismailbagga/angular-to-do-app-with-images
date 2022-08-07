@@ -1,0 +1,25 @@
+.bg-white {
+  background-color: white;
+}
+.u-hide {
+  display: none;
+}
+
+@for $i from 1 through 5 {
+  .mt-#{$i} {
+    margin-top: #{$i}rem;
+  }
+  .md-#{$i} {
+    margin-bottom: #{$i}rem;
+  }
+}
+.sh-1 {
+  // height: 2.2rem;
+  @include static-height(2);
+}
+.u-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

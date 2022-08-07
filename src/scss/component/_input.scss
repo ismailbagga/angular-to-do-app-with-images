@@ -1,0 +1,52 @@
+.input {
+  &-field {
+    app-login-input {
+      background-color: rgb(65, 22, 208) !important;
+    }
+    &-inscription {
+      display: block;
+      padding-left: 1rem;
+      padding-bottom: 0.8rem;
+      width: 25rem;
+
+      // margin-top: 1rem;
+      position: relative;
+      &:focus + &__line {
+        &::before {
+          transform: scaleX(1);
+        }
+      }
+
+      &__line {
+        position: relative;
+        display: block;
+        height: 2px;
+        background-color: var(--input-grey);
+        z-index: 10;
+        // margin-bottom: 2.2rem;
+        // transform: scaleX(0);
+        transition: transform 1s;
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgb(2, 2, 2);
+          transform: scaleX(0);
+          transition: transform 1s;
+          transform-origin: 0;
+        }
+      }
+
+      &::placeholder {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--text-grey);
+        //   color: var(--placeholder-clr);
+      }
+    }
+  }
+}

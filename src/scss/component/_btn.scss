@@ -1,0 +1,39 @@
+.btn {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  padding: 1rem;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 5px;
+  display: block;
+  &-dark {
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+    position: relative;
+    z-index: 1;
+    transition: color 0s 0.4s;
+    &:hover {
+      color: black;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      width: 3px;
+      height: 100%;
+      background-color: rgb(206, 206, 206);
+      border-radius: 5px;
+      transform-origin: start;
+      transform: scaleY(0);
+      transition: transform 0.3s, width 0.3s 0.3s;
+      z-index: -1;
+    }
+    &:hover::before {
+      transform: scaleY(1);
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+<!-- <h1>form Group errors: {{ loginForm.errors | json }}</h1>
+<h1>form Group value: {{ loginForm.value | json }}</h1>
+<h1>Form is Valid: {{ loginForm.valid | json }}</h1> -->
+<section class="section-inscription">
+  <div class="inscription-container grid-of-2 bg-white u-center">
+    <div class="flex-center-col">
+      <h1 class="heading__secondary">Welcome Here</h1>
+      <h4 class="heading__hint">Welcome Here ! please enter your detail</h4>
+      <div class="inputs mt-5">
+        <div class="input__field-inscription">
+          <form [formGroup]="registerForm" class="input-field">
+            <h6 class="heading__danger u-hide" id="inscription-page-warning">
+              Danger Here
+            </h6>
+
+            <app-login-input
+              [model]="{
+                placeholder: 'Username',
+                type: 'text',
+                controller: getController('username')
+              }"
+            ></app-login-input>
+            <app-login-input
+              [model]="{
+                placeholder: 'Full name',
+                type: 'text',
+                controller: getController('fullName')
+              }"
+            ></app-login-input>
+            <app-login-input
+              [model]="{
+                placeholder: 'Email',
+                type: 'email',
+                controller: getController('email')
+              }"
+            ></app-login-input>
+            <app-login-input
+              [model]="{
+                placeholder: 'Password',
+                type: 'Password',
+                controller: getController('password')
+              }"
+            ></app-login-input>
+          </form>
+        </div>
+        <button class="btn btn-dark mt-2">Register</button>
+        <div class="heading__hint mt-3">
+          Don't have an account?
+          <a routerLink="/login" class="headin__hint-black">Log in now</a>
+        </div>
+      </div>
+    </div>
+    <div class="two-col-grid__col">
+      <div class="section-inscription__image">
+        <h1>We Make sure our App is 10x faster than out peers</h1>
+      </div>
+    </div>
+  </div>
+</section>

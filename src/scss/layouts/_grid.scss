@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  //   min-height: 90vh;
+  &-of-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @include login-respond(tablet) {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@mixin static-height($height) {
+  height: #{$height}rem;
+  // width: 100%;
+}
+
+// 1 em = 16px
+
+@mixin login-respond($breakpoint) {
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: 48.75em) {
+      // 780px
+      @content;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<div class="input-field__holder">
+  <!-- {{ this.model.controller.errors | json }} -->
+  <input
+    class="input-field-inscription"
+    [type]="model.type"
+    [placeholder]="model.placeholder"
+    [formControl]="model.controller"
+  />
+  <p class="input-field-inscription__line"></p>
+  <div class="sh-1">
+    <ng-container *ngIf="validate() && this.model.controller.errors">
+      <p class="hint-danger" *ngIf="this.model.controller.hasError('required')">
+        this field is required
+      </p>
+      <p class="hint-danger" *ngIf="this.model.controller.errors['minlength']">
+        you enter
+        {{ this.model.controller.errors!["minlength"]["actualLength"] }}
+        charchter , while at least
+        {{ this.model.controller.errors!["minlength"]["requiredLength"] }}
+        needed
+      </p>
+      <p class="hint-danger" *ngIf="this.model.controller.errors['maxlength']">
+        you enter
+        {{ this.model.controller.errors!["maxlength"]["actualLength"] }}
+        charchter , while you can only enter
+        {{ this.model.controller.errors!["maxlength"]["requiredLength"] }}
+      </p>
+      <p class="hint-danger" *ngIf="this.model.controller.hasError('email')">
+        enter a valid email
+      </p>
+    </ng-container>
+  </div>
+</div>

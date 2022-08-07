@@ -1,0 +1,24 @@
+.section-inscription {
+  position: relative;
+
+  background: var(--bg-color);
+  padding: 2rem 5rem;
+  width: 100vw;
+  height: 100vh;
+  .inscription-container {
+    width: min(95%, 100rem);
+    height: 50rem;
+    @include login-respond(tablet) {
+      width: min(50rem, 95%);
+    }
+  }
+  &__image {
+    background-image: url("../../assets/annie-spratt-unsplash.jpg");
+    // width: 100vw;
+    height: 100%;
+    background-size: cover;
+    @include login-respond(tablet) {
+      display: none;
+    }
+  }
+}

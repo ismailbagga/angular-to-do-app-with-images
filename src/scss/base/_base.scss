@@ -1,0 +1,28 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+input {
+  border: none;
+  outline: none;
+}
+a,
+a:link {
+  color: black;
+}
+
+
+
+html {
+  font-size: 62.5%; // default is 16 => 100% 10/16
+}
+
+// 1rem => parent font-size
+// 1em  => current element parent size
+
+body {
+  font-family: "Poppins", sans-serif;
+}
