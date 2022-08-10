@@ -10,14 +10,7 @@ export class LoginInputComponent implements OnInit {
   @Input('model') model!: InputModel;
   constructor() {}
 
-  ngOnInit(): void {
-    this.model.controller.valueChanges.subscribe((val) => {
-      console.log(this.model.placeholder + ' : ' + val);
-      console.log('errors :');
-      this.model.controller.hasError('required');
-    });
-    // this.inputModel.controller.getError() ;
-  }
+  ngOnInit(): void {}
   validate() {
     return (
       this.model.controller.dirty &&

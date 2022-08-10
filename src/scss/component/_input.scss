@@ -1,14 +1,11 @@
 .input {
   &-field {
-    app-login-input {
-      background-color: rgb(65, 22, 208) !important;
-    }
     &-inscription {
       display: block;
       padding-left: 1rem;
       padding-bottom: 0.8rem;
       width: 25rem;
-
+      overflow: hidden;
       // margin-top: 1rem;
       position: relative;
       &:focus + &__line {

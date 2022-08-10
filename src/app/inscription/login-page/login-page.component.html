@@ -3,9 +3,13 @@
     <div class="flex-center-col">
       <h1 class="heading__secondary">Welcome Again</h1>
       <h4 class="heading__hint">Welcome Here ! please enter your detail</h4>
-      <div class="inputs mt-5">
+      <div class="inputs">
         <div class="input__field-inscription">
-          <h6 class="heading__danger u-hide" id="inscription-page-warning"></h6>
+          <app-warning-header
+            [text]="errorMsg"
+            (onHide)="onHide()"
+          ></app-warning-header>
+
           <app-login-input
             [model]="{
               placeholder: 'Username',
@@ -21,7 +25,9 @@
             }"
           ></app-login-input>
         </div>
-        <button class="btn btn-dark">Log in</button>
+        <button class="btn btn-dark" (click)="onSubmit()">
+          {{ loading ? "Wait..." : "Log in" }}
+        </button>
         <div class="heading__hint mt-3">
           Don't have an account?
           <a routerLink="/register" class="headin__hint-black"
