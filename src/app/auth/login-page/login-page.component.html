@@ -1,0 +1,45 @@
+<section class="section-inscription">
+  <div class="inscription-container grid-of-2 bg-white u-center">
+    <div class="flex-center-col">
+      <h1 class="heading__secondary">Welcome Again</h1>
+      <h4 class="heading__hint">Welcome Here ! please enter your detail</h4>
+      <div class="inputs">
+        <div class="input__field-inscription">
+          <app-warning-header
+            [text]="errorMsg"
+            (onHide)="onHide()"
+          ></app-warning-header>
+
+          <app-login-input
+            [model]="{
+              placeholder: 'Username',
+              type: 'text',
+              controller: getController('username')
+            }"
+          ></app-login-input>
+          <app-login-input
+            [model]="{
+              placeholder: 'Password',
+              type: 'password',
+              controller: getController('password')
+            }"
+          ></app-login-input>
+        </div>
+        <button class="btn btn-dark" (click)="onSubmit()">
+          {{ loading ? "Wait..." : "Log in" }}
+        </button>
+        <div class="heading__hint mt-3">
+          Don't have an account?
+          <a routerLink="/register" class="headin__hint-black"
+            >Sign up for free</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="two-col-grid__col">
+      <div class="section-inscription__image">
+        <h1>We Make sure our App is 10x faster than out peers</h1>
+      </div>
+    </div>
+  </div>
+</section>
