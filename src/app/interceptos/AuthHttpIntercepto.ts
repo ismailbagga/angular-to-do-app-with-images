@@ -20,7 +20,9 @@ export class AuthHttpInterceptor implements HttpInterceptor {
   ];
   saveToken(response: HttpResponse<any>) {
     const token = response.headers.get('access_token');
-    if (token != null) localStorage.setItem('access-token', token);
+    if (token != null) {
+      localStorage.setItem('access-token', token);
+    }
   }
 
   intercept(

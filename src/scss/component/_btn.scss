@@ -7,6 +7,16 @@
   font-weight: bold;
   border-radius: 5px;
   display: block;
+  &-model {
+    // background-color: aqua;
+    background-color: transparent;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-top: 1px solid var(--input-grey);
+    &:hover {
+      background-color: rgb(245, 245, 245);
+    }
+  }
   &-dark {
     color: rgb(255, 255, 255);
     background: rgb(0, 0, 0);

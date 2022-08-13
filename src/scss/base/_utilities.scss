@@ -4,6 +4,23 @@
 .u-hide {
   display: none;
 }
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pos-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.complete-clr {
+  color: var(--completeClr) !important;
+}
+.incomplete-clr {
+  color: var(--incomplete-clr) !important;
+}
 
 @for $i from 1 through 5 {
   .mt-#{$i} {
@@ -11,6 +28,12 @@
   }
   .md-#{$i} {
     margin-bottom: #{$i}rem;
+  }
+  .ml-#{$i} {
+    margin-left: #{$i}rem;
+  }
+  .mr-#{$i} {
+    margin-right: #{$i}rem;
   }
 }
 .sh-1 {

@@ -14,8 +14,6 @@ a:link {
   color: black;
 }
 
-
-
 html {
   font-size: 62.5%; // default is 16 => 100% 10/16
 }
@@ -25,4 +23,5 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
+  background: var(--bg-color);
 }

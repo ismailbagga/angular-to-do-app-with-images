@@ -1,12 +1,26 @@
 .heading {
+  &__primary {
+    font-size: 3.5rem;
+    font-weight: 600;
+  }
   &__secondary {
     font-size: 3rem;
+    font-weight: 600;
+  }
+  &__tertiary {
+    font-size: 2rem;
     font-weight: 600;
   }
   &__hint {
     font-size: 1.2rem;
     font-weight: 500;
     color: var(--text-grey);
+    &-bold {
+      font-size: 1.4rem;
+      font-weight: bolder;
+      max-width: 30rem;
+      text-align: center;
+    }
   }
   &__danger {
     width: 20rem;

@@ -1,0 +1,37 @@
+<section class="home">
+  <header class="home__header">
+    <h1 class="header-text heading__primary">Search For All Saved Tasks</h1>
+    <p class="header-detail heading__hint heading__hint-bold">
+      Unlimted Tasks Could be saved famous Developers used this app :)
+    </p>
+    <div class="header__search">
+      <select name="state" id="" class="header__search-options">
+        <option value="all">All</option>
+        <option value="c">Completed</option>
+        <option value="in">Incompleted</option>
+      </select>
+      <input
+        class="header__search-form"
+        placeholder="Search For Tasks Here ..."
+      />
+      <i class="header__search-icon fa-solid fa-magnifying-glass"></i>
+    </div>
+  </header>
+  <main class="home__main">
+    <header class="home__main-info">
+      <h6 class="heading__tertiary">Tasks</h6>
+      <!-- <div class="order-menu"> -->
+      <!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+      <mat-menu #menu="matMenu" yPosition="above" xPosition="before">
+        <button mat-menu-item>Date Added (oldest)</button>
+        <button mat-menu-item>Date Added (newest)</button>
+      </mat-menu> -->
+      <!-- </div> -->
+    </header>
+    <div class="tasks"></div>
+  </main>
+  <footer class="home__footer">
+    <button>Next Page</button>
+    <div class="propogator"></div>
+  </footer>
+</section>

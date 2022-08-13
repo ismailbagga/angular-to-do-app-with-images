@@ -1,0 +1,25 @@
+.circle {
+  display: table;
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow-1);
+    font-size: 1.2rem;
+    color: green;
+  }
+  h2 {
+    margin-left: 1rem;
+    display: table-cell;
+    padding-left: 1rem;
+  }
+  .complete-clr {
+    color: var(--completeClr) !important;
+  }
+  .incomplete-clr {
+    color: var(--incomplete-clr) !important;
+  }
+}

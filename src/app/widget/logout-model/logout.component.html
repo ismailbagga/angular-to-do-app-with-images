@@ -1,0 +1,25 @@
+<!-- <button class="btn btn-model" (click)="show = true">Log out</button> -->
+<app-model (close)="show = false" *ngIf="show">
+  <div class="model__content">
+    <h2 class="model__header md-1">Logging Out</h2>
+    <p class="model__hint heading__hint">are you sure you want logout</p>
+    <button
+      class="model__close"
+      (click)="show = false; closeLogoutModel.emit()"
+    >
+      &#10005;
+    </button>
+  </div>
+  <button class="btn-model" (click)="logout()">Log out</button>
+</app-model>
+
+<!-- <div class="model">
+  <div class="model__card">
+    <div class="model__content">
+      <h2 class="model__header md-1">Logging Out</h2>
+      <p class="model__hint heading__hint">are you sure you want logout</p>
+      <button class="model__close" (click)="onclose()">&#10005;</button>
+    </div>
+    <button class="btn-model" (click)="onlogout()">Log out</button>
+  </div>
+</div> -->

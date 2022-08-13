@@ -3,6 +3,7 @@
 @import "./abstract/mixing";
 @import "./abstract/variables";
 // Add base
+@import "./base/reset";
 @import "./base/base";
 @import "./base/animations";
 @import "./base/typography";
@@ -13,8 +14,13 @@
 // Add layout wich used Component
 @import "./component/btn";
 @import "./component/input";
+@import "./component/circle";
+@import "./component/drop-down-list";
 // Add pages wich used Layouts
 @import "./layouts/grid";
 @import "./layouts/flex";
+@import "./layouts/layout";
+@import "./layouts/nav";
 // import pages
 @import "./pages/insciption";
+@import "./pages/home";

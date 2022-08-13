@@ -1,1 +1,40 @@
-<p>nav works!</p>
+<section class="nav-container">
+  <nav class="nav">
+    <div class="nav__item nav__logo">
+      <img src="./assets/thereallogo.jpg" alt="Site Logo" />
+    </div>
+    <div class="nav__item ml-3">
+      <app-cirlce
+        [count]="12"
+        icon="fa-solid fa-check-double"
+        [complete]="true"
+      ></app-cirlce>
+    </div>
+    <div class="nav__item ml-1">
+      <app-cirlce
+        [count]="52"
+        icon="fa-solid fa-circle-notch"
+        [complete]="false"
+      ></app-cirlce>
+    </div>
+    <div class="nav__item nav__item-right">
+      <Button class="btn-nav">
+        <i class="fa-solid fa-plus btn-nav__icon"></i>
+        Save
+      </Button>
+    </div>
+
+    <div class="nav__item nav__profile" (click)="toggle()">
+      <i class="fa-solid fa-address-card pos-center"></i>
+      <app-drop-down-list
+        *ngIf="isddlShown"
+        (close)="isddlShown = false"
+        (show)="islogoutModelShown = true"
+      ></app-drop-down-list>
+      <app-logout
+        *ngIf="islogoutModelShown"
+        (onClose)="islogoutModelShown = false"
+      ></app-logout>
+    </div>
+  </nav>
+</section>

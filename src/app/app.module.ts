@@ -3,19 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { InscriptionModule } from './inscription/inscription.module';
+import { InscriptionModule } from './auth/inscription.module';
 
 import { NavigationModule } from './navigation/navigation.module';
 import { AuthHttpInterceptor } from './interceptos/AuthHttpIntercepto';
+import { WidgetModule } from './widget/widget.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
-    NavigationModule,
     InscriptionModule,
+    AppRoutingModule,
+    WidgetModule,
+    NoopAnimationsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },

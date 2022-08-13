@@ -1,14 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
-  templateUrl: './nav.component.html'
+  templateUrl: './nav.component.html',
 })
 export class NavComponent implements OnInit {
+  isddlShown = false;
+  islogoutModelShown = false;
+  constructor(private el: ElementRef) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  profileIconClicked(e: Event) {
+    if (this.isddlShown) {
+      this.isddlShown = false;
+    }
   }
+  toggle() {
+    console.log('clicked');
 
+    this.isddlShown = !this.isddlShown;
+  }
 }

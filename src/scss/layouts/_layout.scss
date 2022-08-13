@@ -1,0 +1,49 @@
+.model {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.547);
+  &__card {
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
+    width: 30rem;
+    overflow: hidden;
+  }
+  &__content {
+    position: relative;
+    padding: 2rem 4rem;
+  }
+  &__close {
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    padding: 5px;
+    font-size: 2rem;
+    color: red;
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  &__header {
+    font-weight: 600;
+    font-size: 1.5rem;
+    // margin-bottom: 2rem;
+  }
+  .btn-model {
+    // background-color: aqua;
+    background-color: transparent;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-top: 1px solid var(--input-grey);
+    &:hover {
+      background-color: rgb(245, 245, 245);
+    }
+  }
+}

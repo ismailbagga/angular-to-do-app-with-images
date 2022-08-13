@@ -1,0 +1,14 @@
+<div class="drop-down-list" (click)="$event.stopPropagation(); close.emit()">
+  <span class="drop-down-list__triangle"></span>
+  <ul class="drop-down-list__items">
+    <li class="drop-down-list__item">
+      <a routerLink="profile">
+        <i class="fa-solid fa-user drop-down-list__item__icon"></i>
+        <h6 class="drop-down-list__item__text">Profile</h6>
+      </a>
+    </li>
+    <li>
+      <button class="btn btn-model" (click)="show.emit()">Log out</button>
+    </li>
+  </ul>
+</div>

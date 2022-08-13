@@ -40,15 +40,13 @@ export class LoginPageComponent extends AuthSuperComponent implements OnInit {
     this.setLoading(true);
     this.appUserService.login(value).subscribe({
       next: (val) => {
-        console.log(val);
         this.setLoading(false);
+        this.appUserService.setAuthenticationState(true);
         this.router.navigateByUrl('/');
       },
       error: (exception) => {
         this.setLoading(false);
         const { status } = exception;
-        console.log(status);
-        // console.log(message);
         if (status == HttpStatusCode.Forbidden) {
           this.onShow('invalid username or password');
         } else this.onShow('Internal Server Error try again');

@@ -50,6 +50,7 @@ export class SignUpPageComponent extends AuthSuperComponent implements OnInit {
       next: (val) => {
         console.log(val);
         this.setLoading(false);
+        this.appUserService.setAuthenticationState(true);
         this.router.navigateByUrl('/');
       },
       error: (exception) => {

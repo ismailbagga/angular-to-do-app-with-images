@@ -1,0 +1,30 @@
+@keyframes slide {
+  0% {
+    transform: translateX(-20%);
+  }
+  50% {
+    transform: translate(0%);
+  }
+
+  75% {
+    transform: translateX(5%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes slide-reverse {
+  0% {
+    transform: translateX(20%);
+  }
+  50% {
+    transform: translate(0%);
+  }
+
+  75% {
+    transform: translateX(-5%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
