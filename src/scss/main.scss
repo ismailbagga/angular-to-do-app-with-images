@@ -1,3 +1,5 @@
+@import "./theme/material";
+
 // Add Abstract
 @import "./abstract/functions";
 @import "./abstract/mixing";
@@ -16,11 +18,18 @@
 @import "./component/input";
 @import "./component/circle";
 @import "./component/drop-down-list";
-// Add pages wich used Layouts
+@import "./component/task";
+@import "./component/loading-spinner";
+@import "./component/snackbars";
+@import "./component/option-content";
+@import "./component/task-form";
+// Add layouts with used Component
 @import "./layouts/grid";
 @import "./layouts/flex";
 @import "./layouts/layout";
 @import "./layouts/nav";
+@import "./layouts/tasks";
+
 // import pages
 @import "./pages/insciption";
 @import "./pages/home";

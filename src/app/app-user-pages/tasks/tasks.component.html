@@ -1,0 +1,21 @@
+<section class="tasks">
+  <div class="loading-spinner" *ngIf="loading; else elseBlock">
+    <mat-spinner color="warn"></mat-spinner>
+    <h1>Loading ...</h1>
+  </div>
+
+  <ng-template #elseBlock>
+    <div *ngIf="tasks.length === 0; else anotherCondition" class="flex-center">
+      <h1 class="heading__secondary">No Tasks Found</h1>
+    </div>
+    <ng-template #anotherCondition>
+      <div class="tasks-list">
+        <app-task
+        *ngFor="let task of tasks; let i = index; trackBy: trackByFn"
+        [task]="task"
+        (deleteFromList) = 'deleteTaskById($event)'
+        ></app-task>
+      </div>
+    </ng-template>
+  </ng-template>
+</section>

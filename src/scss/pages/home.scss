@@ -40,8 +40,8 @@
       &-form {
         flex-grow: 1;
         &::placeholder {
-          color: var(--input-grey);
-          font-weight: 600;
+          // color: var(--input-grey);
+          font-weight: 500;
         }
       }
       &-icon {
@@ -56,7 +56,7 @@
   &__main {
     margin-top: 2rem;
     &-info {
-      background-color: aqua;
+      // background-color: aqua;
       display: flex;
       justify-content: space-between;
       h6 {

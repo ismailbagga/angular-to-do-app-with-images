@@ -4,31 +4,52 @@
     <p class="header-detail heading__hint heading__hint-bold">
       Unlimted Tasks Could be saved famous Developers used this app :)
     </p>
-    <div class="header__search">
-      <select name="state" id="" class="header__search-options">
-        <option value="all">All</option>
-        <option value="c">Completed</option>
-        <option value="in">Incompleted</option>
+    <div class="header__search" [formGroup]="formGroup">
+      <select
+        name="state"
+        id=""
+        formControlName="state"
+        class="header__search-options"
+      >
+        <option value="all" selected>All</option>
+        <option value="completed">Completed</option>
+        <option value="uncompleted">Incompleted</option>
       </select>
       <input
         class="header__search-form"
         placeholder="Search For Tasks Here ..."
+        formControlName="term"
       />
-      <i class="header__search-icon fa-solid fa-magnifying-glass"></i>
+      <i
+        class="header__search-icon fa-solid fa-magnifying-glass"
+        (click)="search()"
+      ></i>
     </div>
   </header>
   <main class="home__main">
     <header class="home__main-info">
       <h6 class="heading__tertiary">Tasks</h6>
-      <!-- <div class="order-menu"> -->
-      <!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button>
-      <mat-menu #menu="matMenu" yPosition="above" xPosition="before">
-        <button mat-menu-item>Date Added (oldest)</button>
-        <button mat-menu-item>Date Added (newest)</button>
-      </mat-menu> -->
-      <!-- </div> -->
+      <div class="order-menu">
+        <button mat-button [matMenuTriggerFor]="menu" class="btn-menu">
+          <!-- <i class="fa-solid fa-bars"></i>  -->
+          <div class="btn-center-content-verticaly">
+            <mat-icon class="mr-1">menu</mat-icon>
+            <span>Sort by</span>
+          </div>
+          <!-- Sort -->
+        </button>
+        <mat-menu #menu="matMenu" yPosition="below" xPosition="before">
+          <button mat-menu-item (click)="sortByNavigation(false)">
+            Date Added (oldest)
+          </button>
+          <button mat-menu-item (click)="sortByNavigation(true)">
+            Date Added (newest)
+          </button>
+        </mat-menu>
+      </div>
     </header>
     <div class="tasks"></div>
+    <app-tasks></app-tasks>
   </main>
   <footer class="home__footer">
     <button>Next Page</button>

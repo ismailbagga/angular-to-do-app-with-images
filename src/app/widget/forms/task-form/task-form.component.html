@@ -1,0 +1,48 @@
+<form class="task-form" *ngIf="form !== undefined">
+  <app-mt-input
+    [model]="{
+      contentType: 'input',
+      type: 'text',
+      placeholder: 'Task Name',
+      controller: getController('taskName')
+    }"
+  ></app-mt-input>
+  <app-mt-input
+    class="task-form__desc"
+    [model]="{
+      contentType: 'text-area',
+      type: '',
+      placeholder: 'Task Description',
+      controller: getController('taskDesc')
+    }"
+  ></app-mt-input>
+  <div class="task-form-image-preview">
+    <input
+      class="input-field-inscription"
+      type="file"
+      (change)="onFileSelected($event)"
+    />
+
+    <img *ngIf="fileHandler.url" [src]="fileHandler.url" />
+  </div>
+
+  <ng-container *ngIf="task.createdAt !== null">
+    <app-mt-input
+      [model]="{
+        contentType: 'input',
+        type: 'date',
+        placeholder: 'Created At ',
+        controller: getController('createdAt')
+      }"
+    ></app-mt-input> </ng-container
+  ><ng-container *ngIf="task.updatedAt !== null">
+    <app-mt-input
+      [model]="{
+        contentType: 'input',
+        type: 'date',
+        placeholder: 'Updated  At ',
+        controller: getController('updatedAt')
+      }"
+    ></app-mt-input>
+  </ng-container>
+</form>

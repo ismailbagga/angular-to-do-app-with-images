@@ -17,6 +17,17 @@
       background-color: rgb(245, 245, 245);
     }
   }
+  &-center-content-verticaly {
+    display: flex;
+    align-items: center;
+    // font-size: 20px;
+  }
+  &-menu {
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 600;
+    // width: 22rem;
+  }
   &-dark {
     color: rgb(255, 255, 255);
     background: rgb(0, 0, 0);

@@ -15,8 +15,10 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
-.complete-clr {
-  color: var(--completeClr) !important;
+.complete-clr,
+.complete-clr:before,
+.complete-clr:after {
+  color: #4ecb71 !important;
 }
 .incomplete-clr {
   color: var(--incomplete-clr) !important;

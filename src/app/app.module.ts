@@ -8,8 +8,8 @@ import { InscriptionModule } from './auth/inscription.module';
 import { NavigationModule } from './navigation/navigation.module';
 import { AuthHttpInterceptor } from './interceptos/AuthHttpIntercepto';
 import { WidgetModule } from './widget/widget.module';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnima}
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,7 +18,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     InscriptionModule,
     AppRoutingModule,
     WidgetModule,
-    NoopAnimationsModule,
+    // NoopAnimationsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },

@@ -25,8 +25,6 @@ export class MainPageGuard implements CanLoad {
       take(1),
 
       tap((is: boolean | null) => {
-        console.log(is);
-
         if (!is) {
           this.router.navigateByUrl('/login');
         }

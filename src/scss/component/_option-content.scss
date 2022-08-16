@@ -1,0 +1,36 @@
+.custom-dialog-container .mat-dialog-container {
+  padding: 0;
+}
+.option-content {
+  border-radius: 5px;
+  padding: 0;
+  width: 40rem;
+  //   height: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  //   background-color: rebeccapurple;
+  &-item {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+    text-align: center;
+    border-top: 1px solid rgb(230, 230, 230);
+    border-bottom: 1px solid rgb(230, 230, 230);
+    transition: background-color 0.2s;
+    cursor: pointer;
+    &-delete {
+      color: red;
+    }
+    &:hover {
+      background-color: rgb(230, 230, 230);
+    }
+  }
+  &-item:last-of-type {
+    border-bottom: none;
+  }
+  &-item:first-of-type {
+    border-top: none;
+  }
+}

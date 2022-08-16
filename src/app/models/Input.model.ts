@@ -5,4 +5,5 @@ export interface InputModel {
   placeholder: string;
   controller: FormControl;
   name?: string;
+  contentType: 'input' | 'text-area' | 'slide' | 'image-upload';
 }

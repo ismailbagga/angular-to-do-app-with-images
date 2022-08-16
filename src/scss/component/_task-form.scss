@@ -1,0 +1,19 @@
+.task-form {
+  display: grid;
+  grid-template-columns: 20rem 20rem 30rem;
+  grid-template-rows: 6rem 10rem 8rem;
+  grid-gap: 1rem 2rem;
+  font-size: 1.2rem;
+
+  // overflow: hidden;
+  // width: 70rem;
+  padding: 2rem;
+  &__desc {
+    grid-column: 1/3;
+  }
+  &-image-preview {
+    grid-column: 3/4;
+    grid-row: 1/4;
+    width: 100%;
+  }
+}

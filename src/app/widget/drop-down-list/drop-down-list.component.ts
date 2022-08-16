@@ -20,13 +20,11 @@ export class DropDownListComponent implements OnInit, OnDestroy {
   constructor(private el: ElementRef) {}
 
   ngOnInit(): void {
-    console.log('open');
   }
   ngOnDestroy(): void {}
   @HostListener('document:click', ['$event'])
   handleOutsideClick(event: Event) {
     let tapEl = event.target as HTMLElement;
-    console.log('item have been clicked', tapEl);
 
     if (this.isFirstTime) {
       this.isFirstTime = false;
@@ -34,7 +32,6 @@ export class DropDownListComponent implements OnInit, OnDestroy {
       return;
     }
 
-    // if (tapEl === this.el.nativeElement) return;
 
     this.close.emit();
   }

@@ -1,0 +1,30 @@
+<div class="task">
+  <i class="task__menu fa-solid fa-ellipsis" (click)="openMenu()"></i>
+  <img class="task__image" [src]="imageSrc()" [alt]="task.imageModel.name" />
+  <h1 class="task__name">
+    <span class="task__name-first-letter">
+      {{ task.taskName.slice(0, 1) }}
+    </span>
+    {{ task.taskName.slice(1) }}
+  </h1>
+  <p class="task__desc">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, facilis
+    est! In harum ipsam velit debitis cumque alias saepe iure unde, rem magnam
+    obcaecati necessitatibus, quo ipsum optio! Ipsa, iste.
+  </p>
+  <div class="task-line"></div>
+  <p class="task__createdat">
+    {{ task.createdAt }}
+  </p>
+  <i
+    *ngIf="task.completed; else elseBlock"
+    class="task__state fa-solid fa-check-double complete-clr"
+    (click)="toggleTaskState()"
+  ></i>
+  <ng-template #elseBlock>
+    <i
+      class="task__state fa-solid fa-chart-line incomplete-clr"
+      (click)="toggleTaskState()"
+    ></i>
+  </ng-template>
+</div>

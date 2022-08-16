@@ -1,5 +1,8 @@
 .input {
   &-field {
+    &-mt {
+      width: 100%;
+    }
     &-inscription {
       display: block;
       padding-left: 1rem;

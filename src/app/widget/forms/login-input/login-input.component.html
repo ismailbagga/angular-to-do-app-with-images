@@ -1,6 +1,14 @@
 <div class="input-field__holder">
   <!-- {{ this.model.controller.errors | json }} -->
+  <!-- <input
+    *ngIf="model.contentType === 'input'"
+    class="input-field-inscription"
+    [type]="model.type"
+    [placeholder]="model.placeholder"
+    [formControl]="model.controller"
+  /> -->
   <input
+    *ngIf="model.contentType === 'input'"
     class="input-field-inscription"
     [type]="model.type"
     [placeholder]="model.placeholder"

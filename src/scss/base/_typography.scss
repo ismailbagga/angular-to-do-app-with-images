@@ -49,4 +49,9 @@
       display: none;
     }
   }
+  &-danger-mt {
+    &:not(:first-of-type) {
+      display: none !important;
+    }
+  }
 }

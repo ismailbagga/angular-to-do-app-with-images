@@ -14,14 +14,18 @@
             [model]="{
               placeholder: 'Username',
               type: 'text',
-              controller: getController('username')
+              controller: getController('username'),
+              contentType: 'input'
+
+
             }"
           ></app-login-input>
           <app-login-input
             [model]="{
               placeholder: 'Password',
               type: 'password',
-              controller: getController('password')
+              controller: getController('password'),
+              contentType: 'input'
             }"
           ></app-login-input>
         </div>

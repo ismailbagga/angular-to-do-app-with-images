@@ -8,6 +8,12 @@ import { ModelComponent } from './model/model.component';
 import { CirlceComponent } from './cirlce/cirlce.component';
 import { DropDownListComponent } from './drop-down-list/drop-down-list.component';
 import { RouterModule } from '@angular/router';
+import { TaskComponent } from './task/task.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TaskFormComponent } from './forms/task-form/task-form.component';
+import { MtInputComponent } from './forms/mt-input/mt-input.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -17,14 +23,25 @@ import { RouterModule } from '@angular/router';
     ModelComponent,
     CirlceComponent,
     DropDownListComponent,
+    TaskComponent,
+    TaskFormComponent,
+    MtInputComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatInputModule,
+  ],
   exports: [
     LoginInputComponent,
     WarningHeaderComponent,
     LogoutComponent,
     CirlceComponent,
     DropDownListComponent,
+    TaskComponent,
   ],
 })
 export class WidgetModule {}
