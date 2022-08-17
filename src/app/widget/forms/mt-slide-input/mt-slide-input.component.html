@@ -1,0 +1,15 @@
+<mat-form-field appearance="fill">
+  {{ model.controller.errors }}
+  <mat-label>{{ model.placeholder }}</mat-label>
+  <mat-select
+    [compareWith]="compareWith"
+    [formControl]="model.controller"
+    [errorStateMatcher]="matcher"
+  >
+    <mat-option [value]="true">Completed</mat-option>
+    <mat-option [value]="false">Incompleted</mat-option>
+  </mat-select>
+  <mat-error *ngIf="model.controller.hasError('required')"
+    >You must make a selection</mat-error
+  >
+</mat-form-field>

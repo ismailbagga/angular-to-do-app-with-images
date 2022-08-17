@@ -8,10 +8,7 @@ export class AppFormGroup {
     if (form !== undefined) this.form = form;
   }
   setFormGroup(form: FormGroup) {
-    console.log('filling up the form');
-
     this.form = form;
-    console.log('counter');
   }
   getController(name: string): FormControl {
     let control = this.form.get(name);
@@ -27,7 +24,6 @@ export class AppFormGroup {
       throw new Error('Could not cast form value');
     }
   }
-
 }
 export abstract class AuthSuperComponent extends AppFormGroup {
   errorMsg: string = '';

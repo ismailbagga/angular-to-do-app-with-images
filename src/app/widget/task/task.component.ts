@@ -1,10 +1,28 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  Sanitizer,
+} from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { TaskModel } from 'src/app/app-user-pages/tasks/tasks.component';
+import { DomSanitizer } from '@angular/platform-browser';
+import {
+  ImageModel,
+  TaskModel,
+} from 'src/app/app-user-pages/tasks/tasks.component';
 import { TasksService } from 'src/app/services/tasks.service';
-import { TaskFormComponent } from '../forms/task-form/task-form.component';
-
+import {
+  FileHandler,
+  TaskFormComponent,
+} from '../forms/task-form/task-form.component';
+export interface ModelDTO {
+  task: TaskModel;
+  isUpdateModel: boolean;
+}
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
@@ -12,17 +30,23 @@ import { TaskFormComponent } from '../forms/task-form/task-form.component';
 export class TaskComponent implements OnInit {
   @Input() task!: TaskModel;
   @Output() deleteFromList = new EventEmitter<number>();
+  // @Output() updadeFromList = new EventEmitter<{}>();
+  public loading = false;
+  public isPageUpdated = false;
+  public src!: any;
   constructor(
     private taskService: TasksService,
     private snackBat: MatSnackBar,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private sanitizer: DomSanitizer // private ref: ChangeDetectorRef
   ) {}
-  public loading = false;
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.imageSrc();
+  }
   imageSrc() {
-    let src = `data:${this.task.imageModel.type};base64,${this.task.imageModel.imageBytes}`;
+    return `data:${this.task.imageModel?.type};base64,${this.task.imageModel?.imageBytes}`;
 
-    return src;
+    // return src;
   }
   toggleTaskState() {
     this.loading = true;
@@ -41,22 +65,59 @@ export class TaskComponent implements OnInit {
   }
 
   showSuccessSnack(mes: string) {
-    this.snackBat.open('Succesful task state toggle', 'close', {
+    this.snackBat.open(mes, 'close', {
       duration: 5 * 1000,
       panelClass: ['snackbar-success', 'mat-warn'],
     });
   }
   showFailedSnack(mes: string) {
-    this.snackBat.open('Ops Something went wrong', 'close', {
+    this.snackBat.open(mes, 'close', {
       duration: 5 * 1000,
       panelClass: ['snackbar-failure'],
     });
   }
   viewTask() {
+    const model: ModelDTO = {
+      task: this.task,
+      isUpdateModel: true,
+    };
     let ref = this.dialog.open(TaskFormComponent, {
       panelClass: 'custom-dialog-container',
-      data: { task: this.task },
+      data: model,
     });
+    ref.componentInstance.save$.subscribe((res) => {
+      this.updateTask(res.task, res.file);
+    });
+  }
+
+  updateTask(task: TaskModel, fileHandler: FileHandler) {
+    let data = new FormData();
+
+    data.append(
+      'task',
+      new Blob([JSON.stringify({ ...task, taskId: task.id })], {
+        type: 'application/json',
+      })
+    );
+
+    if (fileHandler.file) data.append('image', fileHandler.file);
+
+    this.taskService.updateTask(data).subscribe({
+      next: (res: any) => {
+        this.task.taskName = task.taskName;
+
+        this.task.completed = task.completed;
+
+        this.task.task_desc = task.task_desc;
+
+        if (res) this.task.imageModel = res;
+      },
+      error: (err) => {},
+    });
+  }
+
+  taskState() {
+    return this.task.completed;
   }
   deleteTask() {
     this.taskService.deleteTask(this.task.id).subscribe({

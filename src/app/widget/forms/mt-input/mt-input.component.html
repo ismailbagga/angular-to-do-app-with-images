@@ -1,4 +1,4 @@
-<mat-form-field class="input-field-mt" appearance="outline">
+<mat-form-field class="input-field-mt" appearance="fill">
   <mat-label>{{ model.placeholder }}</mat-label>
   <textarea
     *ngIf="model.contentType === 'text-area'"
@@ -14,8 +14,8 @@
     [formControl]="model.controller"
     [errorStateMatcher]="matcher"
   />
-</mat-form-field>
-<ng-container *ngIf="validate() && this.model.controller.errors">
+
+  <!-- <div *ngIf="validate() && this.model.controller.errors"> -->
   <mat-error
     class="hint-danger"
     *ngIf="this.model.controller.hasError('required')"
@@ -24,7 +24,7 @@
   </mat-error>
   <mat-error
     class="hint-danger-mt"
-    *ngIf="this.model.controller.errors['minlength']"
+    *ngIf="this.model.controller.hasError('minlength')"
   >
     you enter
     {{ this.model.controller.errors!["minlength"]["actualLength"] }}
@@ -34,7 +34,7 @@
   </mat-error>
   <mat-error
     class="hint-danger-mt"
-    *ngIf="this.model.controller.errors['maxlength']"
+    *ngIf="this.model.controller.hasError('maxlength')"
   >
     you enter
     {{ this.model.controller.errors!["maxlength"]["actualLength"] }}
@@ -47,4 +47,5 @@
   >
     enter a valid email
   </mat-error>
-</ng-container>
+  <!-- </div> -->
+</mat-form-field>

@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { TaskModel } from '../app-user-pages/tasks/tasks.component';
 import { AppUserService } from './app-user/app-user.service';
 export interface filterParams {
   page?: number;
@@ -32,15 +33,13 @@ export class TasksService {
     params.state != null
       ? (apiParams = apiParams.set('c', params.state.toUpperCase()))
       : null;
-    console.log(params);
 
-    console.log(apiParams);
-
-    return this.http.get(this.rootUrl + '/all', { params: apiParams }).pipe(
-      tap((val: any) => {
-        console.log(val);
-      })
-    );
+    return this.http.get<TaskModel[]>(this.rootUrl + '/all', {
+      params: apiParams,
+    });
+  }
+  saveTask(data: FormData) {
+    return this.http.post(this.rootUrl, data);
   }
   toggleTaskState(id: number) {
     let params = new HttpParams();
@@ -50,5 +49,8 @@ export class TasksService {
   }
   deleteTask(id: number) {
     return this.http.delete(`${this.rootUrl}/${id}`);
+  }
+  updateTask(formData: FormData) {
+    return this.http.patch(this.rootUrl, formData);
   }
 }

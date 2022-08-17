@@ -5,6 +5,6 @@
     // background-color: aqua;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     justify-items: center;
-    row-gap: 1rem;
+    grid-gap: 20px 1px;
   }
 }

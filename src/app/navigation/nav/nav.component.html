@@ -3,7 +3,7 @@
     <div class="nav__item nav__logo">
       <img src="./assets/thereallogo.jpg" alt="Site Logo" />
     </div>
-    <div class="nav__item ml-3">
+    <!-- <div class="nav__item ml-3">
       <app-cirlce
         [count]="12"
         icon="fa-solid fa-check-double"
@@ -16,9 +16,9 @@
         icon="fa-solid fa-circle-notch"
         [complete]="false"
       ></app-cirlce>
-    </div>
+    </div> -->
     <div class="nav__item nav__item-right">
-      <Button class="btn-nav">
+      <Button class="btn-nav" (click)="onSaveTask()">
         <i class="fa-solid fa-plus btn-nav__icon"></i>
         Save
       </Button>

@@ -9,8 +9,8 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filterParams, TasksService } from 'src/app/services/tasks.service';
-interface ImageModel {
-  id: number;
+export interface ImageModel {
+  id?: number;
   name: string;
   type: string;
   imageBytes: string;
@@ -19,10 +19,10 @@ export interface TaskModel {
   id: number;
   taskName: string;
   task_desc: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updateAt?: Date;
   completed: boolean;
-  imageModel: ImageModel;
+  imageModel?: ImageModel;
 }
 
 @Component({

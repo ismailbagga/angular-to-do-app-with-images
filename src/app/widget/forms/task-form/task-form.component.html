@@ -1,48 +1,77 @@
-<form class="task-form" *ngIf="form !== undefined">
-  <app-mt-input
-    [model]="{
-      contentType: 'input',
-      type: 'text',
-      placeholder: 'Task Name',
-      controller: getController('taskName')
+<mat-dialog-content class="mt-content-margin-removal">
+  <form
+    class="task-form"
+    [ngClass]="{
+      'task-form-update': isUpdateModel,
+      'task-form-create': !isUpdateModel
     }"
-  ></app-mt-input>
-  <app-mt-input
-    class="task-form__desc"
-    [model]="{
-      contentType: 'text-area',
-      type: '',
-      placeholder: 'Task Description',
-      controller: getController('taskDesc')
-    }"
-  ></app-mt-input>
-  <div class="task-form-image-preview">
-    <input
-      class="input-field-inscription"
-      type="file"
-      (change)="onFileSelected($event)"
-    />
-
-    <img *ngIf="fileHandler.url" [src]="fileHandler.url" />
-  </div>
-
-  <ng-container *ngIf="task.createdAt !== null">
+    *ngIf="form !== undefined"
+    [formGroup]="form"
+    (ngSubmit)="onSave($event)"
+  >
     <app-mt-input
       [model]="{
         contentType: 'input',
-        type: 'date',
-        placeholder: 'Created At ',
-        controller: getController('createdAt')
-      }"
-    ></app-mt-input> </ng-container
-  ><ng-container *ngIf="task.updatedAt !== null">
-    <app-mt-input
-      [model]="{
-        contentType: 'input',
-        type: 'date',
-        placeholder: 'Updated  At ',
-        controller: getController('updatedAt')
+        type: 'text',
+        placeholder: 'Task Name',
+        controller: getController('taskName')
       }"
     ></app-mt-input>
-  </ng-container>
-</form>
+    <app-mt-input
+      class="task-form__desc"
+      [model]="{
+        contentType: 'text-area',
+        type: '',
+        placeholder: 'Task Description',
+        controller: getController('task_desc')
+      }"
+    ></app-mt-input>
+    <app-mt-slide-input
+      [model]="{
+        contentType: 'slide',
+        type: 'select',
+        placeholder: 'Task State',
+        controller: getController('completed')
+      }"
+    >
+    </app-mt-slide-input>
+    <div class="task-form-image-preview">
+      <input
+        class="input-field-inscription"
+        type="file"
+        (change)="onFileSelected($event)"
+      />
+      <img *ngIf="imageSrc() !== null" [src]="imageSrc()" />
+    </div>
+    <ng-container *ngIf="task.createdAt !== undefined">
+      <app-mt-input
+        class="task-form__created-at"
+        [model]="{
+          contentType: 'input',
+          type: 'date',
+          placeholder: 'Created At ',
+          controller: getController('createdAt')
+        }"
+      ></app-mt-input>
+    </ng-container>
+
+    <ng-container
+      *ngIf="task.updateAt !== undefined"
+      class="task-form__updated-at"
+    >
+      <app-mt-input
+        class="task-form__updated-at"
+        [model]="{
+          contentType: 'input',
+          type: 'date',
+          placeholder: 'Updated  At ',
+          controller: getController('updateAt')
+        }"
+      ></app-mt-input>
+    </ng-container>
+    <button mat-flat-button color="accent" class="task-form__submit-btn">
+      Save
+    </button>
+    <!-- <button mat-button color="warn" >Clear</button> -->
+  </form>
+</mat-dialog-content>
